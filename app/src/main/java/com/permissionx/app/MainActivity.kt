@@ -17,7 +17,9 @@ class MainActivity : AppCompatActivity(){
 
         val btnMakeCall : Button = findViewById(R.id.btnMakeCall)
         btnMakeCall.setOnClickListener {
-            PermissionX.request(this, Manifest.permission.CALL_PHONE) { allGranted, deniedList ->
+            PermissionX.request(this, Manifest.permission.CALL_PHONE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_CONTACTS) { allGranted, deniedList ->
                 if (allGranted) {
                     call()
                 } else {
